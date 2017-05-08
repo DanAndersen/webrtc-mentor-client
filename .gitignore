@@ -1,0 +1,15 @@
+Makefile
+*.cmake
+.DS_Store
+ext_build
+build
+Release
+Debug
+CMakeCache.txt
+CMakeFiles
+.vs
+*.vcxproj
+*.filters
+*.sdf
+*.sln
+webrtc-checkout-src
