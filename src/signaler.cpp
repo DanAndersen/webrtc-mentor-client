@@ -136,8 +136,14 @@ void Signaler::onClientStateChange(void* sender, sockio::ClientState& state, con
 void Signaler::onNewRGBFrame(cv::Mat& frame) {
 	DebugL << "onNewRGBFrame " << endl;
 
-	cv::imshow("test_frame", frame);
-	cv::waitKey(1);
+	_rgbFrame = frame;
+	_hasNewFrame = true;
+
+	//cv::Mat copyMat;
+	//frame.copyTo(copyMat);
+
+	//cv::imshow("test_frame", copyMat);
+	//cv::waitKey(1);
 }
 
 void Signaler::onAddRemoteStream(PeerConnection* conn, webrtc::MediaStreamInterface* stream)

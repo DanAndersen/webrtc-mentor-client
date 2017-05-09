@@ -25,8 +25,9 @@ using namespace scy;
 
 int main(int argc, char** argv)
 {
-    Logger::instance().add(new ConsoleChannel("debug", LDebug)); // LTrace
-	//Logger::instance().add(new ConsoleChannel("debug", LTrace)); // LTrace
+	// NOTE: all of these Logger functions print nothing when the project is in Release (rather than Debug).
+    //Logger::instance().add(new ConsoleChannel("debug", LDebug)); // LTrace
+	Logger::instance().add(new ConsoleChannel("debug", LTrace)); // LTrace
 
 #if USE_SSL
     net::SSLManager::initNoVerifyClient();
@@ -36,6 +37,7 @@ int main(int argc, char** argv)
     rtc::LogMessage::LogToDebug(rtc::LERROR);
     rtc::LogMessage::LogTimestamps();
     rtc::LogMessage::LogThreads();
+
 
     rtc::InitializeSSL();
 
@@ -51,10 +53,20 @@ int main(int argc, char** argv)
 
         Signaler app(options);
 
-        Idler rtc(app.loop, [](void* arg) {
+		
+
+        Idler rtc(app.loop, [&](void* arg) {
             // TraceA("Running WebRTC loop")
             auto thread = reinterpret_cast<rtc::Thread*>(arg);
             thread->ProcessMessages(10);
+
+			if (app._hasNewFrame) {
+				cv::imshow("test_frame", app._rgbFrame);
+				app._hasNewFrame = false;
+				cv::waitKey(1);
+			}
+			
+
         }, rtc::Thread::Current());
 
         app.waitForShutdown();

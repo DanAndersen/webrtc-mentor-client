@@ -36,7 +36,7 @@ set(BUILD_MODULE_turn ON )
 set(BUILD_MODULE_webrtc ON )
 set(OPENSSL_ROOT_DIR "C:/OpenSSL-Win64")
 set(FFMPEG_ROOT_DIR "E:/Libs/ffmpeg-20170225-7e4f32f-win64-dev")
-set(WEBRTC_ROOT_DIR "E:/webrtc/004/webrtc-checkout/src")
+set(WEBRTC_ROOT_DIR "E:/webrtc/webrtc_built")
 
 set(LibSourcey_DIR "E:/libsourcey/002/libsourcey")
 include("${LibSourcey_DIR}/LibSourcey.cmake")

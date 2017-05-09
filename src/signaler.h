@@ -37,6 +37,9 @@ public:
 
 	void onNewRGBFrame(cv::Mat& frame);
 
+	cv::Mat _rgbFrame;
+	bool _hasNewFrame = false;
+
 protected: 
 
     /// PeerConnectionManager interface
