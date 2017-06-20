@@ -5,9 +5,9 @@ set(sourcedir ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(sourcefiles ${sourcedir}/*.cpp)
 set(headerfiles ${sourcedir}/*.h ${sourcedir}/*.hpp)
 
-set(OpenCV_DIR "E:/Libs/opencv320/opencv/build")
+set(OpenCV_DIR "D:/Dev/holowebrtc/opencv/build")
 message("Finding OpenCV...")
-find_package( OpenCV REQUIRED ) # May need to override OpenCV_DIR (e.g "E:\Libs\opencv320\opencv\build")
+find_package( OpenCV REQUIRED ) # May need to override OpenCV_DIR (e.g "E:/Libs/opencv320/opencv/build")
 
 # include LibSourcey
 
@@ -35,10 +35,10 @@ set(BUILD_MODULE_stun ON )
 set(BUILD_MODULE_turn ON )
 set(BUILD_MODULE_webrtc ON )
 set(OPENSSL_ROOT_DIR "C:/OpenSSL-Win64")
-set(FFMPEG_ROOT_DIR "E:/Libs/ffmpeg-20170225-7e4f32f-win64-dev")
-set(WEBRTC_ROOT_DIR "E:/webrtc/webrtc_built")
+set(FFMPEG_ROOT_DIR "D:/Dev/holowebrtc/ffmpeg-3.3.1-win64")
+set(WEBRTC_ROOT_DIR "D:/Dev/holowebrtc/webrtc")
 
-set(LibSourcey_DIR "E:/libsourcey/002/libsourcey")
+set(LibSourcey_DIR "D:/Dev/holowebrtc/libsourcey")
 include("${LibSourcey_DIR}/LibSourcey.cmake")
 
 #link_libraries(${LibSourcey_LIBRARIES} ${FFmpeg_LIBRARIES} ${OpenCV_LIBS})
@@ -66,7 +66,7 @@ add_executable(WebRTCMentorClient ${sources} ${headers})
 
 target_link_libraries(WebRTCMentorClient ${LibSourcey_LIBRARIES} ${FFmpeg_LIBRARIES} ${OpenCV_LIBS} ${WEBRTC_LIBRARIES} ${extra_webrtc_libs})
 
-set_default_project_dependencies(WebRTCMentorClient uv base crypto av net http util json socketio symple webrtc)
+set_default_project_dependencies(WebRTCMentorClient base crypto av net http util json socketio symple webrtc)
 
 set_target_properties(WebRTCMentorClient PROPERTIES OUTPUT_NAME "WebRTCMentorClient")
 

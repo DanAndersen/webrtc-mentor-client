@@ -50,7 +50,7 @@ namespace scy {
 
 	void CvStreamRecorder::OnFrame(const webrtc::VideoFrame& yuvframe)
 	{
-		TraceA("On video frame: ", yuvframe.width(), 'x', yuvframe.height())
+		LTrace("On video frame: ", yuvframe.width(), 'x', yuvframe.height())
 
 		if (_awaitingVideo) {
 			_awaitingVideo = false;
@@ -81,13 +81,13 @@ namespace scy {
 		int sample_rate, size_t number_of_channels,
 		size_t number_of_frames)
 	{
-		TraceL << "On audio frame: "
+		STrace << "On audio frame: "
 			<< "number_of_frames=" << number_of_frames << ", "
 			<< "number_of_channels=" << number_of_channels << ", "
 			<< "sample_rate=" << sample_rate << ", "
 			<< "bits_per_sample=" << bits_per_sample << std::endl;
 
-		TraceL << "TODO: ignoring all incoming audio data" << std::endl;
+		STrace << "TODO: ignoring all incoming audio data" << std::endl;
 	}
 }
 

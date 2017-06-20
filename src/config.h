@@ -10,7 +10,7 @@
 
 
 //#define SERVER_HOST "localhost"
-#define SERVER_HOST "andersed-talos.ddns.net"
+#define SERVER_HOST "andersed-webrtc-signal-server.herokuapp.com"
 #define USE_SSL 1 // 1
 #if USE_SSL
 #define SERVER_PORT 443

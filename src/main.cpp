@@ -26,8 +26,8 @@ using namespace scy;
 int main(int argc, char** argv)
 {
 	// NOTE: all of these Logger functions print nothing when the project is in Release (rather than Debug).
-    //Logger::instance().add(new ConsoleChannel("debug", LDebug)); // LTrace
-	Logger::instance().add(new ConsoleChannel("debug", LTrace)); // LTrace
+    Logger::instance().add(new ConsoleChannel("debug", Level::Debug)); // LTrace
+	//Logger::instance().add(new ConsoleChannel("debug", Level::Trace)); // LTrace
 
 #if USE_SSL
     net::SSLManager::initNoVerifyClient();
